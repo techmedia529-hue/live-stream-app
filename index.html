@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Live Stream App</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- HLS Player -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+</head>
+
+<body>
+
+<div class="stream-container">
+
+    <!-- ===================== -->
+    <!-- Video Player -->
+    <!-- ===================== -->
+
+    <div
+        class="video-box"
+        id="videoContainer">
+
+        <video
+            id="videoPlayer"
+            controls
+            autoplay
+            playsinline>
+        </video>
+
+        <!-- Loading Overlay -->
+
+        <div
+            class="video-overlay"
+            id="videoOverlay">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            <p>সম্প্রচার লোড হচ্ছে...</p>
+
+        </div>
+
+        <!-- Stream Info -->
+
+        <div
+            class="stream-info-overlay"
+            id="streamInfoOverlay"
+            style="display:none;">
+
+            <h4 id="displayTitle">
+
+                লাইভ টাইটেল
+
+            </h4>
+
+            <p id="displayDesc">
+
+                এখানে লাইভ স্ট্রিমের বিবরণ দেখানো হবে।
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- Chat Section -->
+    <!-- ===================== -->
+
+    <div class="interaction-section">
+
+        <div
+            class="chat-box"
+            id="chatBox">
+
+            <div class="chat-message">
+
+                <b>সিস্টেম:</b>
+
+                লাইভ স্ট্রিমে স্বাগতম!
+
+            </div>
+
+        </div>
+
+        <div class="chat-input-row">
+
+            <input
+                type="text"
+                id="commentInput"
+                placeholder="কমেন্ট লিখুন...">
+
+            <button id="sendCommentBtn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+            <button
+                id="likeBtn"
+                class="like-btn">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <span id="likeCount">0</span>
+
+            </button>
+
+        </div>
+
+    </div>
+    <!-- ===================== -->
+    <!-- Footer -->
+    <!-- ===================== -->
+
+    <div class="viewer-footer">
+
+        <button id="fullscreenBtn">
+
+            <i class="fa-solid fa-expand"></i>
+
+            ফুলস্ক্রিন
+
+        </button>
+
+        <button
+            id="shareBtn"
+            class="share-btn">
+
+            <i class="fa-solid fa-share-nodes"></i>
+
+            শেয়ার
+
+        </button>
+
+        <button
+            id="adminTriggerBtn"
+            class="admin-icon-btn">
+
+            <i class="fa-solid fa-lock"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ===================== -->
+<!-- Admin Modal -->
+<!-- ===================== -->
+
+<div
+    id="adminModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <h3>
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            অ্যাডমিন কন্ট্রোল প্যানেল
+
+        </h3>
+
+        <!-- Login Section -->
+
+        <div id="loginSection">
+
+            <input
+                type="email"
+                id="adminEmail"
+                placeholder="Admin Email">
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Password">
+
+            <button id="loginBtn">
+
+                Login
+
+            </button>
+
+        </div>
+
+        <!-- Control Section -->
+
+        <div
+            id="controlSection"
+            style="display:none;">
+
+            <label for="adminUrlInput">
+
+                ভিডিও / Live URL
+
+            </label>
+
+            <input
+                type="text"
+                id="adminUrlInput"
+                placeholder=".mp4 অথবা .m3u8">
+
+            <label for="adminTitleInput">
+
+                লাইভ টাইটেল
+
+            </label>
+
+            <input
+                type="text"
+                id="adminTitleInput"
+                placeholder="Title">
+
+            <label for="adminDescInput">
+
+                লাইভ ডেসক্রিপশন
+
+            </label>
+
+            <input
+                type="text"
+                id="adminDescInput"
+                placeholder="Description">
+
+            <div class="admin-buttons">
+
+                <button
+                    id="startStreamBtn"
+                    class="btn-success">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Start
+
+                </button>
+
+                <button
+                    id="closeAdminBtn"
+                    class="btn-danger">
+
+                    বন্ধ করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================== -->
+<!-- Scripts -->
+<!-- ===================== -->
+
+<script type="module" src="app.js"></script>
+
+</body>
+
+</html>

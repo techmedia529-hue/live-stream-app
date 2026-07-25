@@ -418,10 +418,12 @@ function playYouTube(embedUrl) {
     console.log("playYouTube:", embedUrl);
 
     stopPlayer();
+if (video) video.style.display = "none";
 
-    video.style.display = "none";
+if (youtube) {
     youtube.style.display = "block";
     youtube.src = embedUrl;
+}
 
     setTimeout(hideLoading, 3000);
 

@@ -1,273 +1,318 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
 
     <meta charset="UTF-8">
 
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Live Stream App</title>
+    <meta name="theme-color"
+          content="#0F0F0F">
 
-    <link rel="stylesheet" href="style.css">
+    <title>LIVE STREAM</title>
 
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+          href="style.css">
 
-    <!-- HLS Player -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- HLS.js -->
+  
 </head>
 
 <body>
 
-<div class="stream-container">
+<header class="main-header">
 
-    <!-- ===================== -->
-    <!-- Video Player -->
-    <!-- ===================== -->
+    <div class="logo-area">
 
-    <div
-        class="video-box"
-        id="videoContainer">
+        <img src="assets/logo/live-stream-logo.png"
+             alt="Live Stream"
+             class="app-logo">
 
-        <video
-            id="videoPlayer"
-            controls
-            autoplay
-            playsinline>
-        </video>
+        <div class="logo-text">
 
-        <!-- Loading Overlay -->
+            <h2>LIVE STREAM</h2>
 
-        <div
-            class="video-overlay"
-            id="videoOverlay">
-
-            <i class="fa-solid fa-spinner fa-spin"></i>
-
-            <p>সম্প্রচার লোড হচ্ছে...</p>
-
-        </div>
-
-        <!-- Stream Info -->
-
-        <div
-            class="stream-info-overlay"
-            id="streamInfoOverlay"
-            style="display:none;">
-
-            <h4 id="displayTitle">
-
-                লাইভ টাইটেল
-
-            </h4>
-
-            <p id="displayDesc">
-
-                এখানে লাইভ স্ট্রিমের বিবরণ দেখানো হবে।
-
-            </p>
+            <span>Watch Live Anytime</span>
 
         </div>
 
     </div>
 
-    <!-- ===================== -->
-    <!-- Chat Section -->
-    <!-- ===================== -->
+    <div class="header-actions">
 
-    <div class="interaction-section">
+        <button class="icon-btn" id="searchBtn">
 
-        <div
-            class="chat-box"
-            id="chatBox">
+            <i class="fa-solid fa-magnifying-glass"></i>
 
-            <div class="chat-message">
+        </button>
 
-                <b>সিস্টেম:</b>
+        <button class="icon-btn" id="menuBtn">
 
-                লাইভ স্ট্রিমে স্বাগতম!
+            <i class="fa-solid fa-bars"></i>
 
-            </div>
-
-        </div>
-
-        <div class="chat-input-row">
-
-            <input
-                type="text"
-                id="commentInput"
-                placeholder="কমেন্ট লিখুন...">
-
-            <button id="sendCommentBtn">
-
-                <i class="fa-solid fa-paper-plane"></i>
-
-            </button>
-
-            <button
-                id="likeBtn"
-                class="like-btn">
-
-                <i class="fa-solid fa-heart"></i>
-
-                <span id="likeCount">0</span>
-
-            </button>
-
-        </div>
+        </button>
 
     </div>
-    <!-- ===================== -->
-    <!-- Footer -->
-    <!-- ===================== -->
 
-    <div class="viewer-footer">
+</header>
 
-        <button id="fullscreenBtn">
+<main class="viewer-layout">
 
-            <i class="fa-solid fa-expand"></i>
+<section class="player-section">
 
-            ফুলস্ক্রিন
+<div class="video-box" id="videoContainer">
 
-        </button>
+<video
+id="videoPlayer"
+autoplay
+muted
+playsinline>
+</video>
 
-        <button
-            id="shareBtn"
-            class="share-btn">
+<iframe
+id="youtubePlayer"
+style="display:none;border:none;"
+allow="autoplay;fullscreen"
+allowfullscreen>
+</iframe>
 
-            <i class="fa-solid fa-share-nodes"></i>
+<div class="video-overlay"
+id="videoOverlay">
 
-            শেয়ার
+<i class="fa-solid fa-spinner fa-spin"></i>
 
-        </button>
+<p>সম্প্রচার লোড হচ্ছে...</p>
 
-        <button
-            id="adminTriggerBtn"
-            class="admin-icon-btn">
+</div>
 
-            <i class="fa-solid fa-lock"></i>
+<div class="video-watermark">
 
-        </button>
+<img src="assets/logo/live-stream-logo.png"
+alt="Live Stream">
+
+</div>
+
+<div class="custom-controls">
+
+<button id="playPauseBtn">
+
+<i class="fa-solid fa-play"></i>
+
+</button>
+
+<button id="muteBtn">
+
+<i class="fa-solid fa-volume-high"></i>
+
+</button>
+
+<input
+type="range"
+id="seekBar"
+value="0"
+min="0"
+max="100">
+
+<button id="pipBtn">
+
+<i class="fa-regular fa-clone"></i>
+
+</button>
+
+<button id="fullscreenBtn">
+
+<i class="fa-solid fa-expand"></i>
+</button>
+</div>
+</div>
+<!-- ========================= -->
+<!-- Stream Information -->
+<!-- ========================= -->
+
+<div class="stream-info" id="streamInfoOverlay">
+
+    <div class="live-status">
+
+        <span class="live-dot"></span>
+
+        <span class="live-text">LIVE</span>
+
+    </div>
+
+    <h2 id="displayTitle">
+
+        লাইভ টাইটেল
+
+    </h2>
+
+    <p id="displayDesc">
+
+        এখানে লাইভ স্ট্রিমের বিবরণ দেখানো হবে।
+
+    </p>
+
+</div>
+
+<!-- ========================= -->
+<!-- Action Buttons -->
+<!-- ========================= -->
+
+<div class="action-bar">
+
+    <button
+        id="likeBtn"
+        class="action-btn">
+
+        <i class="fa-solid fa-heart"></i>
+
+        <span id="likeCount">
+
+            0
+
+        </span>
+
+    </button>
+
+    <button
+        id="shareBtn"
+        class="action-btn">
+
+        <i class="fa-solid fa-share-nodes"></i>
+
+        <span>
+
+            Share
+
+        </span>
+
+    </button>
+
+    <div class="viewer-counter">
+
+        <i class="fa-solid fa-eye"></i>
+
+        <span id="viewerCount">
+
+            0 Watching
+
+        </span>
 
     </div>
 
 </div>
 
-<!-- ===================== -->
-<!-- Admin Modal -->
-<!-- ===================== -->
+<!-- ========================= -->
+<!-- Live Channels -->
+<!-- ========================= -->
 
-<div
-    id="adminModal"
-    class="modal">
+<section class="channel-section">
 
-    <div class="modal-content">
+    <div class="section-title">
+
+        <i class="fa-solid fa-tv"></i>
 
         <h3>
 
-            <i class="fa-solid fa-user-shield"></i>
-
-            অ্যাডমিন কন্ট্রোল প্যানেল
+            Live Channels
 
         </h3>
 
-        <!-- Login Section -->
+    </div>
 
-        <div id="loginSection">
+    <div
+        id="channelList"
+        class="channel-list">
 
-            <input
-                type="email"
-                id="adminEmail"
-                placeholder="Admin Email">
+        <!-- JavaScript থেকে Channel Card যুক্ত হবে -->
 
-            <input
-                type="password"
-                id="adminPassword"
-                placeholder="Password">
+    </div>
 
-            <button id="loginBtn">
+</section>
+<!-- ========================= -->
+<!-- Live Chat -->
+<!-- ========================= -->
 
-                Login
+<section class="chat-section">
 
-            </button>
+    <div class="section-title">
 
-        </div>
+        <i class="fa-solid fa-comments"></i>
 
-        <!-- Control Section -->
+        <h3>Live Chat</h3>
 
-        <div
-            id="controlSection"
-            style="display:none;">
+    </div>
 
-            <label for="adminUrlInput">
+    <div
+        class="chat-box"
+        id="chatBox">
 
-                ভিডিও / Live URL
+        <div class="chat-message">
 
-            </label>
+            <b>সিস্টেম:</b>
 
-            <input
-                type="text"
-                id="adminUrlInput"
-                placeholder=".mp4 অথবা .m3u8">
-
-            <label for="adminTitleInput">
-
-                লাইভ টাইটেল
-
-            </label>
-
-            <input
-                type="text"
-                id="adminTitleInput"
-                placeholder="Title">
-
-            <label for="adminDescInput">
-
-                লাইভ ডেসক্রিপশন
-
-            </label>
-
-            <input
-                type="text"
-                id="adminDescInput"
-                placeholder="Description">
-
-            <div class="admin-buttons">
-
-                <button
-                    id="startStreamBtn"
-                    class="btn-success">
-
-                    <i class="fa-solid fa-play"></i>
-
-                    Start
-
-                </button>
-
-                <button
-                    id="closeAdminBtn"
-                    class="btn-danger">
-
-                    বন্ধ করুন
-
-                </button>
-
-            </div>
+            লাইভ স্ট্রিমে স্বাগতম!
 
         </div>
 
     </div>
 
-</div>
-<!-- ===================== -->
-<!-- Scripts -->
-<!-- ===================== -->
+    <div class="chat-input-row">
 
+        <input
+            type="text"
+            id="commentInput"
+            placeholder="একটি মন্তব্য লিখুন...">
+
+        <button
+            id="sendCommentBtn">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+</section>
+
+</main>
+<div id="offlineScreen" class="offline-screen" style="display:none;">
+
+    <img src="assets/logo/live-stream-logo.png" alt="Offline">
+
+    <h2>বর্তমানে কোনো লাইভ সম্প্রচার নেই</h2>
+
+    <p>অনুগ্রহ করে পরে আবার চেষ্টা করুন।</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- Loading Screen -->
+<!-- ========================= -->
+
+<div
+    id="loadingScreen"
+    class="loading-screen">
+
+    <img
+        src="assets/logo/live-stream-logo.png"
+        alt="Live Stream">
+
+    <h2>LIVE STREAM</h2>
+
+    <p>Loading...</p>
+
+</div>
+
+<!-- Scripts -->
+<!-- ========================= -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script type="module" src="app.js"></script>
 
 </body>
-
 </html>

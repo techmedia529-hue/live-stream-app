@@ -151,3 +151,20 @@ stopBtn.addEventListener("click", async () => {
     }
 
 });
+// =======================
+// Logout
+// =======================
+
+logoutBtn.addEventListener("click", async () => {
+
+    try {
+
+        await signOut(auth);
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
+
+});

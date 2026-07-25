@@ -84,22 +84,22 @@ console.log("Playing URL:", stream.url);
 
     }
 
+// Stream OFF
 
-    // Stream OFF
+else {
 
-    else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
 
-        if(offlineScreen){
-            offlineScreen.style.display="block";
-        }
+    youtubePlayer.src = "";
 
+    if (offlineScreen) {
+        offlineScreen.style.display = "block";
     }
 
-
+}
 });
-
-
-
 // ===============================
 // Play / Pause
 // ===============================

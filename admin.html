@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Stream Admin</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎥 Live Stream Admin</h1>
+
+<!-- Login -->
+<div id="loginSection">
+
+<h2>Admin Login</h2>
+
+<input
+type="email"
+id="email"
+placeholder="Email">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button id="loginBtn">
+<i class="fa-solid fa-right-to-bracket"></i>
+Login
+</button>
+
+</div>
+
+
+<!-- Control Panel -->
+<div id="controlSection" style="display:none;">
+
+<h2>Live Control</h2>
+
+<input
+type="text"
+id="streamUrl"
+placeholder="Stream URL">
+
+<input
+type="text"
+id="streamTitle"
+placeholder="Title">
+
+<textarea
+id="streamDescription"
+placeholder="Description"></textarea>
+
+<button id="startBtn">
+<i class="fa-solid fa-play"></i>
+Start Live
+</button>
+
+<button id="stopBtn">
+<i class="fa-solid fa-stop"></i>
+Stop Live
+</button>
+
+<button id="logoutBtn">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</button>
+
+</div>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>

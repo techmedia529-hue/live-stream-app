@@ -1,0 +1,84 @@
+/* admin.css */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#121212;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+    background:#1e1e1e;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+h1,h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:8px;
+    background:#2b2b2b;
+    color:#fff;
+    font-size:15px;
+}
+
+textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#loginBtn{
+    background:#2196F3;
+    color:#fff;
+}
+
+#startBtn{
+    background:#00C853;
+    color:#fff;
+}
+
+#stopBtn{
+    background:#E53935;
+    color:#fff;
+}
+
+#logoutBtn{
+    background:#616161;
+    color:#fff;
+}
+
+button:hover{
+    opacity:.9;
+}
